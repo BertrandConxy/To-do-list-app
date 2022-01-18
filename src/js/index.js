@@ -45,12 +45,44 @@ class CreateListItem {
 
 class DisplayActivities {
   static display() {
-    stores.sort((a, b) => a.index - b.index);
-    stores.forEach((action) => {
+    const activities = LocalStorageClass.getbooksFromStore();
+    activities.sort((a, b) => a.index - b.index);
+activities.forEach((action) => {
       CreateListItem.create(action);
     });
   }
 }
 
-DisplayActivities.display();
+
+
+// Dispay activity list on home page
+document.addEventListener('DOMContentLoaded', DisplayActivities.display());
 CheckComplete.check();
+// Saving the activity when the user click add button
+document.querySelector('#form').addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const title = document.getElementById('title');
+  const author = document.getElementById('author');
+
+  //   create book object
+  const book = new CreateBook(title, author);
+  // add it to local storage
+  LocalStorageClass.addbookToStore(book);
+  // append the book to the book list
+  CreateBookElements.createBookElement(book);
+  //  Reseting the form inputs
+  const form = document.querySelector('#form');
+  form.reset();
+});
+
+//  removing the book when the user clicks remove button
+
+// Remove book from UI
+document.querySelector('.book-list').addEventListener('click', (e) => {
+  DisplayBookList.removeBook(e.target);
+
+  // remove book from the store
+  const child = e.target.parentElement.children[0].firstElementChild.innerHTML;
+  LocalStorageClass.removeFromTheStore(child);
+});
