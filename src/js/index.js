@@ -22,8 +22,8 @@ class CreateListItem {
     const item = document.createElement('li');
     item.innerHTML = `<input type="checkbox" name="check" class="check"
          ${action.completed ? 'checked' : ' '}>
-        <p>${action.description}</p> 
-        <i class="fas fa-ellipsis-v icon"></i>
+        <p contenteditable="true" class="par">${action.description}</p> 
+        <i class="fas fa-trash-alt icon"></i>
         `;
     list.appendChild(item)
     n++
@@ -34,7 +34,7 @@ class DisplayActivities {
   static display() {
     const activities = LocalStorageClass.getActFromStore();
     activities.sort((a, b) => a.index - b.index);
-activities.forEach((action) => {
+    activities.forEach((action) => {
       CreateListItem.create(action);
     });
   }
@@ -43,7 +43,7 @@ activities.forEach((action) => {
 // Dispay activity list on home page
 document.addEventListener('DOMContentLoaded', DisplayActivities.display());
 CheckComplete.check();
-// Saving the activity when the user click add button
+// Saving the activity when the user click enter
 document.querySelector('#input-activity').addEventListener('keyup', (e) => {
 if (e.keyCode == 13 ) {
   const index = n
@@ -66,16 +66,32 @@ if (e.keyCode == 13 ) {
 }
 });
 
+// Removing activity
 const moreIcon = document.querySelectorAll('.icon')
-moreIcon.forEach((icon)=> {
-  icon.addEventListener('click', ()=>{
-    icon.innerHTML=`<i class="fas fa-trash-alt"></i>`
-  })
-})
 moreIcon.forEach((more) => {
   more.addEventListener('click', (e)=> {
     RemoveActivities.removeAct(e.target)
     RemoveActivities.removeFromTheStore(e.target.parentElement.children[1].innerHTML)
-    n--
+    n--;
   })
 })
+
+
+// Updating the descritption when the user clicks on it
+
+const paragraphs =document.querySelectorAll('.par')
+paragraphs.forEach((paragraph, indice)=>{
+  paragraph.addEventListener('keyup', (e)=>{
+    const activities = LocalStorageClass.getActFromStore();
+    activities.forEach((act)=>{
+      if(act['index']=== indice+1) {
+        act['description'] = e.target.innerHTML
+        localStorage.setItem('activities', JSON.stringify(activities))
+      }
+    })
+
+  
+  })
+})
+
+

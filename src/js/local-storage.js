@@ -16,7 +16,6 @@ export default class LocalStorageClass {
     }
 
 
-
   }
 
 export class StoreActivity {
