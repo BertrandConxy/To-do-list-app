@@ -1,5 +1,5 @@
 export default class LocalStorageClass {
-    static getbooksFromStore() {
+    static getActFromStore() {
       let activities;
       if (localStorage.getItem('activities') === null) {
          activities = [];
@@ -9,15 +9,15 @@ export default class LocalStorageClass {
       return activities;
     }
   
-    static addbookToStore(activity) {
-      const activities = LocalStorageClass.getbooksFromStore();
+    static addActToStore(activity) {
+      const activities = LocalStorageClass.getActFromStore();
       activities.push(activity);
       localStorage.setItem('activities', JSON.stringify(activities));
     }
   
     static removeFromTheStore(title) {
-      const books = LocalStorageClass.getbooksFromStore();
-      const filteredArray = books.filter((book) => book.title !== title);
+      const activities = LocalStorageClass.getActFromStore();
+      const filteredArray = books.filter((action) => book.title !== title);
       localStorage.setItem('books', JSON.stringify(filteredArray));
     }
   }

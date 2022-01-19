@@ -1,25 +1,10 @@
 /* eslint-disable max-classes-per-file */
 import '../css/style.css';
+import LocalStorageClass from './local-storage.js';
+import { StoreActivity } from './local-storage.js';
 
 const list = document.getElementById('toDo-list');
-const stores = [
-  {
-    index: 3,
-    description: 'Celebrate for the day',
-    completed: false,
-  },
-  {
-    index: 2,
-    description: 'Complete today project',
-    completed: false,
-  },
-  {
-    index: 1,
-    description: 'Wake up early',
-    completed: false,
-  },
-
-];
+let current = 1
 
 class CheckComplete {
   static check() {
@@ -40,12 +25,13 @@ class CreateListItem {
         <i class="fas fa-ellipsis-v icon"></i>
         `;
     list.appendChild(item);
+    current++
   }
 }
 
 class DisplayActivities {
   static display() {
-    const activities = LocalStorageClass.getbooksFromStore();
+    const activities = LocalStorageClass.getActFromStore();
     activities.sort((a, b) => a.index - b.index);
 activities.forEach((action) => {
       CreateListItem.create(action);
@@ -59,30 +45,21 @@ activities.forEach((action) => {
 document.addEventListener('DOMContentLoaded', DisplayActivities.display());
 CheckComplete.check();
 // Saving the activity when the user click add button
-document.querySelector('#form').addEventListener('submit', (e) => {
+document.querySelector('#input-activity').addEventListener('keyup', (e) => {
   e.preventDefault();
-
-  const title = document.getElementById('title');
-  const author = document.getElementById('author');
+if (e.keyCode == 13 ) {
+  const index = current
+  const descrip = document.getElementById('input-activity').value;
+  const complete = false
 
   //   create book object
-  const book = new CreateBook(title, author);
+  const activity = new StoreActivity(index, descrip, complete);
   // add it to local storage
-  LocalStorageClass.addbookToStore(book);
+  LocalStorageClass.addActToStore(activity);
   // append the book to the book list
-  CreateBookElements.createBookElement(book);
+  CreateListItem.create(activity);
   //  Reseting the form inputs
-  const form = document.querySelector('#form');
-  form.reset();
-});
-
-//  removing the book when the user clicks remove button
-
-// Remove book from UI
-document.querySelector('.book-list').addEventListener('click', (e) => {
-  DisplayBookList.removeBook(e.target);
-
-  // remove book from the store
-  const child = e.target.parentElement.children[0].firstElementChild.innerHTML;
-  LocalStorageClass.removeFromTheStore(child);
+  const input = document.querySelector('#input-activity');
+  input.reset();
+}
 });
