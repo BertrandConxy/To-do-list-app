@@ -2,9 +2,10 @@
 import '../css/style.css';
 import LocalStorageClass from './local-storage.js';
 import { StoreActivity } from './local-storage.js';
+import RemoveActivities from './remove.js';
 
 const list = document.getElementById('toDo-list');
-let current = 1
+export let n = 1
 
 class CheckComplete {
   static check() {
@@ -19,13 +20,13 @@ class CheckComplete {
 class CreateListItem {
   static create(action) {
     const item = document.createElement('li');
-    item.innerHTML += `<input type="checkbox" name="check" class="check"
+    item.innerHTML = `<input type="checkbox" name="check" class="check"
          ${action.completed ? 'checked' : ' '}>
-        <p> ${action.description}</p> 
+        <p>${action.description}</p> 
         <i class="fas fa-ellipsis-v icon"></i>
         `;
-    list.appendChild(item);
-    current++
+    list.appendChild(item)
+    n++
   }
 }
 
@@ -39,27 +40,42 @@ activities.forEach((action) => {
   }
 }
 
-
-
 // Dispay activity list on home page
 document.addEventListener('DOMContentLoaded', DisplayActivities.display());
 CheckComplete.check();
 // Saving the activity when the user click add button
 document.querySelector('#input-activity').addEventListener('keyup', (e) => {
-  e.preventDefault();
 if (e.keyCode == 13 ) {
-  const index = current
+  const index = n
   const descrip = document.getElementById('input-activity').value;
   const complete = false
 
-  //   create book object
+  //   create activity object
   const activity = new StoreActivity(index, descrip, complete);
   // add it to local storage
   LocalStorageClass.addActToStore(activity);
-  // append the book to the book list
+  
+  // append the Activity to the book list
   CreateListItem.create(activity);
-  //  Reseting the form inputs
+  // refresh the page
+  location.reload()
+  
+  //  Reseting the input
   const input = document.querySelector('#input-activity');
-  input.reset();
+  input.value = ' '
 }
 });
+
+const moreIcon = document.querySelectorAll('.icon')
+moreIcon.forEach((icon)=> {
+  icon.addEventListener('click', ()=>{
+    icon.innerHTML=`<i class="fas fa-trash-alt"></i>`
+  })
+})
+moreIcon.forEach((more) => {
+  more.addEventListener('click', (e)=> {
+    RemoveActivities.removeAct(e.target)
+    RemoveActivities.removeFromTheStore(e.target.parentElement.children[1].innerHTML)
+    n--
+  })
+})

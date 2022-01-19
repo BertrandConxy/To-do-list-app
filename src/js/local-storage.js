@@ -14,15 +14,11 @@ export default class LocalStorageClass {
       activities.push(activity);
       localStorage.setItem('activities', JSON.stringify(activities));
     }
-  
-    static removeFromTheStore(title) {
-      const activities = LocalStorageClass.getActFromStore();
-      const filteredArray = books.filter((action) => book.title !== title);
-      localStorage.setItem('books', JSON.stringify(filteredArray));
-    }
+
+
+
   }
 
- 
 export class StoreActivity {
     constructor(index, description,complete) {
         this.index = index,
