@@ -1,0 +1,104 @@
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 120px;
+}
+
+#toDo-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 70vw;
+  padding: 10px 5px;
+  padding-bottom: 30px;
+  box-shadow: 5px 9px 12px 9px grey;
+}
+
+#toDo-head {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: inherit;
+}
+
+input {
+  width: inherit;
+  height: 40px;
+  border: none;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid grey;
+  font-weight: 700;
+}
+
+#toDo-list {
+  list-style-type: none;
+  width: inherit;
+  padding-left: 0;
+  margin: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid grey;
+  position: relative;
+}
+
+input[type='checkbox'] {
+  margin-right: 16px;
+}
+
+input::placeholder {
+  font-size: 16px;
+}
+
+.input-container {
+  width: inherit;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.input-container .enter {
+  padding-right: 5px;
+  position: absolute;
+  right: 0;
+  font-size: 28px;
+  font-weight: bold;
+  opacity: 0.5;
+}
+
+.icon {
+  position: absolute;
+  right: 0;
+  float: right;
+  cursor: pointer;
+}
+
+button {
+  width: inherit;
+  background-color: transparent;
+  font-weight: bold;
+  opacity: 0.5;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.recycle-icon {
+  cursor: pointer;
+}
+
+i {
+  opacity: 0.5;
+}
