@@ -51,6 +51,13 @@ li {
   align-items: center;
   border-bottom: 1px solid grey;
   position: relative;
+  background-color: white;
+  transition: 0.4s;
+}
+
+li:hover {
+  color: white;
+  background-color: rgb(77, 77, 77);
 }
 
 input[type='checkbox'] {
