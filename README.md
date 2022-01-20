@@ -36,12 +36,10 @@ However, there are some project requisites required for this project to run prop
 
 
 ## Project Status
-This project is still under development.
+This project is finished and deplyed with Github pages.
 
 ## Screenshoots
-![Screenshot (111)](https://user-images.githubusercontent.com/90222110/150183064-796af521-dd33-48fc-b97d-f720af56a7de.png)
-
-
+![Screenshot (116)](https://user-images.githubusercontent.com/90222110/150308929-86440b0b-7f5f-4bad-9aa3-44801c45f0c0.png)
 
 ## Live Demo link
  https://bertrandconxy.github.io/To-do-list-app/
@@ -67,5 +65,5 @@ https://github.com/BertrandConxy/To-do-list-app/issues
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-
-Thanks to everyone who helped me.
+- Thanks to Vanafor your help.
+- Thanks to everyone else who helped me.
