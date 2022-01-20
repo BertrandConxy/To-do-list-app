@@ -16,9 +16,9 @@ body {
   flex-flow: column;
   justify-content: center;
   align-items: center;
-  width: 70vw;
-  padding: 10px 5px;
-  padding-bottom: 30px;
+  width: 50vw;
+  padding: 0 5px;
+  padding-bottom: 20px;
   box-shadow: 5px 9px 12px 9px grey;
 }
 
@@ -28,6 +28,8 @@ body {
   align-items: center;
   justify-content: space-between;
   width: inherit;
+  height: 100px;
+  background-image: linear-gradient(pink, white);
 }
 
 input {
@@ -62,7 +64,10 @@ li:hover {
 
 input[type='checkbox'] {
   margin-right: 16px;
+  width: 20px;
+  height: 30px;
 }
+
 
 input::placeholder {
   font-size: 16px;
@@ -105,11 +110,18 @@ button {
   text-decoration: line-through;
 }
 
-.recycle-icon {
+.recycle {
   cursor: pointer;
+  font-size: 30px;
 }
 
 i {
   opacity: 0.5;
+  font-size: 20px;
+}
+
+#erase {
+  padding: 20px 0;
+  font-size: 20px;
 }
 
