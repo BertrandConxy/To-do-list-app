@@ -3,7 +3,7 @@ export default class RemoveActivities {
     target.parentNode.parentNode.removeChild(target.parentNode);
   }
 
-  static resetList () {
-      localStorage.clear()
+  static resetList() {
+    localStorage.clear();
   }
 }

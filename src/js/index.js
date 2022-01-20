@@ -83,18 +83,18 @@ paragraphs.forEach((paragraph, indice) => {
 
 //  Checking activity for completed
 CheckComplete.updateComplete();
-CheckComplete.lineThrough()
+CheckComplete.lineThrough();
 
 // clear all completed
-const button = document.getElementById('erase')
-button.addEventListener('click', ()=>{
-  CheckComplete.clearCompleted()
-  window.location.reload()
-})
+const button = document.getElementById('erase');
+button.addEventListener('click', () => {
+  CheckComplete.clearCompleted();
+  window.location.reload();
+});
 
 // Reset the list
-const resetBtn = document.querySelector('.recycle')
-resetBtn.addEventListener('click', ()=>{
+const resetBtn = document.querySelector('.recycle');
+resetBtn.addEventListener('click', () => {
   RemoveActivities.resetList();
   window.location.reload();
-})
+});
