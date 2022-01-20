@@ -2,6 +2,7 @@
 import '../css/style.css';
 import LocalStorageClass, { StoreActivity } from './add-remove-localstorage.js';
 import RemoveActivities from './UI-remove-task.js';
+import CheckComplete from './check-complete.js';
 
 const list = document.getElementById('toDo-list');
 let counter = 1;
@@ -10,7 +11,7 @@ class CreateListItem {
   static create(action) {
     const item = document.createElement('li');
     item.innerHTML = `<input type="checkbox" name="check" class="check"
-         ${action.completed ? 'checked' : ' '}>
+         ${action.complete ? 'checked' : ' '}>
         <p contenteditable="true" class="par">${action.description}</p> 
         <i class="fas fa-trash-alt icon"></i>
         `;
@@ -79,3 +80,7 @@ paragraphs.forEach((paragraph, indice) => {
     });
   });
 });
+
+//  Checking activity for completed
+CheckComplete.updateComplete();
+CheckComplete.lineThrough()
