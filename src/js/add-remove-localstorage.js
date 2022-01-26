@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
-
 export default class LocalStorageClass {
+
   static getActFromStore() {
     let activities;
     if (localStorage.getItem('activities') === null) {
