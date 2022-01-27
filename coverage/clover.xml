@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1643275711255" clover="3.2.0">
-  <project timestamp="1643275711255" name="All files">
+<coverage generated="1643275926783" clover="3.2.0">
+  <project timestamp="1643275926784" name="All files">
     <metrics statements="21" coveredstatements="19" conditionals="4" coveredconditionals="3" methods="9" coveredmethods="7" elements="34" coveredelements="29" complexity="0" loc="21" ncloc="21" packages="1" files="3" classes="3"/>
-    <file name="UI-remove-task.js" path="C:\Users\User\Downloads\To-do-list-app\src\js\UI-remove-task.js">
+    <file name="UI-remove-task.js" path="D:\CODING\To-do-list-app\src\js\UI-remove-task.js">
       <metrics statements="2" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
       <line num="3" count="1" type="stmt"/>
       <line num="7" count="0" type="stmt"/>
     </file>
-    <file name="add-remove-localstorage.js" path="C:\Users\User\Downloads\To-do-list-app\src\js\add-remove-localstorage.js">
+    <file name="add-remove-localstorage.js" path="D:\CODING\To-do-list-app\src\js\add-remove-localstorage.js">
       <metrics statements="15" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="5"/>
       <line num="6" count="5" type="cond" truecount="2" falsecount="0"/>
       <line num="7" count="1" type="stmt"/>
@@ -25,7 +25,7 @@
       <line num="34" count="6" type="stmt"/>
       <line num="35" count="6" type="stmt"/>
     </file>
-    <file name="create-list.js" path="C:\Users\User\Downloads\To-do-list-app\src\js\create-list.js">
+    <file name="create-list.js" path="D:\CODING\To-do-list-app\src\js\create-list.js">
       <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <line num="4" count="4" type="stmt"/>
       <line num="5" count="4" type="stmt"/>
