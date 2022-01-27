@@ -16,4 +16,14 @@ describe('Addition and removal of the task', ()=>{
             complete: false
         }])
     })
+
+    test('Remove task from storage', () => {
+        const activity = new StoreActivity(1, 'Do sports', false);
+        LocalStorageClass.addActToStore(activity);
+        LocalStorageClass.removeFromTheStore('Do sports')
+        const tasks = LocalStorageClass.getActFromStore()
+        expect(tasks).toEqual([])
+    } )
 })
+
+
