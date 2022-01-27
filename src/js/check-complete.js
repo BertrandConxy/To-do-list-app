@@ -40,7 +40,7 @@ export default class CheckComplete {
   static clearCompleted() {
     const activities = LocalStorageClass.getActFromStore();
     const filteredActivities = activities.filter(
-      (act) => act.complete === false
+      (act) => act.complete === false,
     );
     filteredActivities.forEach((acts, indices) => {
       acts.index = indices + 1;

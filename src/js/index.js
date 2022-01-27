@@ -3,6 +3,7 @@ import '../css/style.css';
 import LocalStorageClass, { StoreActivity } from './add-remove-localstorage.js';
 import RemoveActivities from './UI-remove-task.js';
 import CheckComplete from './check-complete.js';
+import updatePara from './update-descript.js';
 
 let counter = 1;
 class CreateListItem {
@@ -69,17 +70,7 @@ trashIcon.forEach((more) => {
 // editing and Updating the the task description when the user clicks on it
 
 const paragraphs = document.querySelectorAll('.par');
-paragraphs.forEach((paragraph, indice) => {
-  paragraph.addEventListener('keyup', (e) => {
-    const activities = LocalStorageClass.getActFromStore();
-    activities.forEach((act) => {
-      if (act.index === indice + 1) {
-        act.description = e.target.innerHTML;
-        localStorage.setItem('activities', JSON.stringify(activities));
-      }
-    });
-  });
-});
+updatePara(paragraphs);
 
 //  Checking activity for completed
 CheckComplete.updateComplete();
