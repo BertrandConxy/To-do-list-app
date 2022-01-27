@@ -25,4 +25,15 @@ describe('update complete task', () => {
       },
     ]);
   });
+   
+  test('clear completed task', () => {
+    document.body.innerHTML = '<ul id="toDo-list"></ul>';
+    const activity1 = new StoreActivity(1, 'Do sports', true);
+    LocalStorageClass.addActToStore(activity1);
+    CreateListItem.create(activity1);
+   CheckComplete.clearCompleted()
+   const activities = LocalStorageClass.getActFromStore();
+   expect(activities).toEqual([])
+  })
+
 });
