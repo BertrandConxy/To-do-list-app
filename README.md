@@ -60,13 +60,16 @@ https://github.com/BertrandConxy/To-do-list-app/issues
 - Twitter: [@Bconxy](https://twitter.com/Bconxy)
 - LinkedIn: [Bertrand Mutangana Ishimwe](https://www.linkedin.com/in/bertrand-mutangana-024905220/)
 
-## Authors
 
 👤 **Daniel Yerimah**
 
 - GitHub: [@yerimah](https://github.com/yerimah)
 - Twitter: [@iamdeewyne](https://twitter.com/iamdeewyne)
 - LinkedIn: [@daniel-yerimah](https://www.linkedin.com/in/daniel-yerimah/)
+
+👤 **Adekunle Ismael**
+
+
 
 ## Show your support
 
