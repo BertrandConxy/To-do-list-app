@@ -37,5 +37,18 @@ describe ('appending and removing task from UI', ()=>{
         const list = document.getElementById('toDo-list')
         expect(list.childElementCount).toBe(2);
     })
+
+    test('remove task from UI', () => {
+        document.body.innerHTML = `<ul id="toDo-list"></ul>`;
+        const activity1 = new StoreActivity(1, 'Do sports', false);
+        const activity2 = new StoreActivity(2, 'Drink water', false);
+        CreateListItem.create(activity1);
+        CreateListItem.create(activity2);
+        const trashIcon = document.querySelector('.icon');
+        trashIcon.click()
+        RemoveActivities.removeAct(trashIcon)
+        const list = document.getElementById('toDo-list')
+        expect(list.childElementCount).toEqual(1)
+    })
 })
 
