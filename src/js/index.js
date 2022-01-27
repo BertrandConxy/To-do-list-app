@@ -4,22 +4,20 @@ import LocalStorageClass, { StoreActivity } from './add-remove-localstorage.js';
 import RemoveActivities from './UI-remove-task.js';
 import CheckComplete from './check-complete.js';
 
-const list = document.getElementById('toDo-list');
 let counter = 1;
-
 class CreateListItem {
   static create(action) {
+    const list = document.getElementById('toDo-list');
     const item = document.createElement('li');
     item.innerHTML = `<input type="checkbox" name="check" class="check"
-         ${action.complete ? 'checked' : ' '}>
-        <p contenteditable="true" class="par">${action.description}</p> 
-        <i class="fas fa-trash-alt icon"></i>
-        `;
+           ${action.complete ? 'checked' : ' '}>
+          <p contenteditable="true" class="par">${action.description}</p> 
+          <i class="fas fa-trash-alt icon"></i>
+          `;
     list.appendChild(item);
     counter += 1;
   }
 }
-
 class DisplayActivities {
   static display() {
     const activities = LocalStorageClass.getActFromStore();
@@ -37,6 +35,7 @@ document.addEventListener('DOMContentLoaded', DisplayActivities.display());
 document.querySelector('#input-activity').addEventListener('keyup', (e) => {
   if (e.keyCode === 13) {
     const index = counter;
+
     const descrip = document.getElementById('input-activity').value;
     const complete = false;
 
@@ -47,6 +46,7 @@ document.querySelector('#input-activity').addEventListener('keyup', (e) => {
 
     // append the Activity to the book list
     CreateListItem.create(activity);
+
     // refresh the page
     window.location.reload();
 
