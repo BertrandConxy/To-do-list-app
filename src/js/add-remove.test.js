@@ -4,6 +4,7 @@
 
 import LocalStorageClass, {StoreActivity}from "./add-remove-localstorage.js";
 import CreateListItem from "./create-list.js";
+import RemoveActivities from './UI-remove-task.js'
 
 describe('Addition and removal of the task', ()=>{
     test('add task to storage', ()=>{
@@ -26,4 +27,15 @@ describe('Addition and removal of the task', ()=>{
     } )
 })
 
+describe ('appending and removing task from UI', ()=>{
+    test('appending to UI', ()=>{
+        document.body.innerHTML= `<ul id="toDo-list"></ul>`;
+        const activity1 = new StoreActivity(1, 'Do sports', false);
+        const activity2 = new StoreActivity(2, 'Drink water', false);
+        CreateListItem.create(activity1);
+        CreateListItem.create(activity2);
+        const list = document.getElementById('toDo-list')
+        expect(list.childElementCount).toBe(2);
+    })
+})
 
